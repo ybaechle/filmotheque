@@ -1,0 +1,19 @@
+#container-main {
+	padding: 2rem;
+}
+.champ {
+	margin-bottom: 2rem;
+}
+
+.champ-ligne {
+	display:grid;
+	grid-template-columns: 1fr 1fr 1fr 1fr;
+	align-items: top;
+	
+}
+
+.champ-ligne>div {
+	padding-top:5px;
+	padding-left:20px;
+
+	}

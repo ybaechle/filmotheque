@@ -1,0 +1,103 @@
+:root {
+	font-family: verdana, sans-serif;
+	--header-couleur-fond: hsl(250deg, 50%, 95%);
+	--footer-couleur-fond: hsl(248deg, 50%, 55%);
+	--couleur-titre: hsl(250deg, 50%, 40%);
+	--couleur-titre-2: hsl(297deg, 50%, 50%);
+	--couleur-texte: hsl(250deg, 50%, 60%);
+	--couleur-erreur-grave: hsl(0deg, 100%, 50%);
+	--couleur-erreur-grave-fond: hsl(0deg, 55%, 55%);
+	--couleur-fond-titre-card: hsl(250deg, 50%, 60%);
+	--couleur-titre-card: white;
+	--body-largeur:90%;
+}
+
+* { margin: 0px }
+
+a { text-decoration: none;}
+a:link {color: var(--couleur-texte)}
+a:visited {color: var(--couleur-texte)}
+a:hover {color: var(--couleur-texte)}
+a:focus {color: var(--couleur-texte)}
+a:active {color: var(--couleur-texte)}
+
+html, body {
+	height: 100%;
+	margin: 0; padding: 0;
+}
+body {
+	display : table;
+	width: 100%;	
+}
+footer {
+	display: table-row;	
+	height: 80px;
+}
+
+
+#container-header {
+	width: var(--body-largeur);
+	margin: auto;}
+#container-main {
+	width: var(--body-largeur);
+	margin: auto;
+	padding-bottom: 2rem;
+	}
+
+header {
+	background-color: var(--header-couleur-fond);
+	margin: 0px;
+	padding: 2rem;
+	margin-bottom: 2rem;
+	display:flex;
+	justify-content: space-between;
+}
+
+header .logo-container {
+	display: flex;
+	justify-content: start;
+	align-items: center;
+}
+
+header nav {
+	display: flex;
+	justify-content: space-around;
+	font-size: 0.8rem;
+}
+
+#contenu-principal {
+	height: var(--sticky-footer-gap);
+}
+
+h1 { font-size:2rem ; color: var(--couleur-titre); 
+margin-bottom: 2rem;}
+h2 { font-size:1.4rem;
+	color: var(--couleur-titre);
+ }
+
+header h1 {
+	font-size:2rem;
+	letter-spacing: 0.1px;
+	color: var(--couleur-titre);
+	margin-bottom: 0rem;
+	margin-left: 1rem;
+}
+
+#footer-inside {
+	/*margin-top: 2rem;*/
+	background-color: var(--footer-couleur-fond);
+	padding: 2rem;
+	justify-content: space-around;
+	display: flex;
+	color: white;
+	margin-bottom: 0px;	
+	height: 100%;
+}
+footer a {padding: 10px; border-radius: 20px}
+footer a:link, footer a:visited , footer a:hover 
+, footer a:focus , footer a:active {color: white}
+
+footer a:hover {
+	background-color: white;
+	color: var(--footer-couleur-fond);	
+}

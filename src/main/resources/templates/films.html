@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html th:replace="~{modele-page :: layout('Liste des films',~{::link} , ~{::#container-main})}" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<meta charset="UTF-8">
+	<title>Filmotheque</title>
+	<link rel="stylesheet" href="/css/films.css" />
+</head>
+
+<body>
+	
+	<div class="container-films" id="container-main">
+		<div class="card-film" th:each="film : ${films}">
+			<a th:href="@{/film(id=${film.id})}">
+				<h1 th:text="${film.titre}">Titre du film</h1>
+			
+			<div class="card-content">
+			<div><strong>Sortie : </strong>[[${film.anneeSortie}]]</div>
+			<div>[[${film.synopsisCourt}]]...</div>
+			</div>
+			</a>
+		</div>
+
+	</div>
+	
+	
+
+</body>
+
+</html>

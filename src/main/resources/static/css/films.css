@@ -1,0 +1,28 @@
+.container-films {
+	display: grid;
+	/*grid-template-columns: repeat(4, 1fr);*/
+	grid-template-columns: repeat(auto-fill, minmax(150px,1fr));
+  	grid-gap: 1rem;
+}
+
+.card-film  {
+	border-radius: 10px;
+	overflow: hidden;		
+	border: 1px solid #aaa;
+}
+
+.card-film h1 {
+	background-color: var(--couleur-fond-titre-card);
+	color : var(--couleur-titre-card);
+	font-size: 1rem;
+	text-align: center;
+	padding: 10px;
+	margin: 0px 0px;
+	min-width: 100px;
+		
+}
+
+.card-content {
+	padding: 10px;
+	font-size: 0.8rem;
+}

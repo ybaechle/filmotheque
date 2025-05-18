@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html
+	th:replace="~{modele-page :: layout('Nouveau film',~{::link} , ~{::#container-main})}"
+	xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Filmotheque</title>
+<link rel="stylesheet" href="/css/ajout-film.css" />
+</head>
+<body>
+
+
+	<div id="container-main">
+
+		<form th:action="@{/enregistrerFilm}" method="post" th:object="${film}">
+
+	<div class="erreur-saisie" th:if="${#fields.hasErrors('*')}" >
+	<p th:text="#{index.erreurs}">Message d'erreur</p>
+	</div>
+		
+		
+			<div class="champ-saisie">
+				<label for="titre">Titre: </label>
+				<div>
+					<input type="text" th:field="*{titre}" id="titre" />
+				</div>
+	<span style="color: red;" th:if="${#fields.hasErrors('titre')}">
+	<ul>
+		<li th:each="erreur: ${#fields.errors('titre')}" th:text="${erreur}"></li>
+	</ul>
+	</span>					
+			</div>
+
+			<div class="champ-saisie">
+				<label for="anneeSortie">Sortie: </label>
+				<div>
+					<input type="number" xmin="1800" th:field="*{anneeSortie}"
+						id="anneeSortie" />
+				</div>
+	<span style="color: red;" th:if="${#fields.hasErrors('anneeSortie')}">
+	<ul>
+		<li th:each="erreur: ${#fields.errors('anneeSortie')}" th:text="${erreur}"></li>
+	</ul>
+	</span>					
+
+			</div>
+
+			<div class="champ-saisie">
+				<label for="duree">Duree: </label>
+				<div>
+					<input type="number" min="0" th:field="*{duree}" id="duree" />
+				</div>
+	<span style="color: red;" th:if="${#fields.hasErrors('duree')}">
+	<ul>
+		<li th:each="erreur: ${#fields.errors('duree')}" th:text="${erreur}"></li>
+	</ul>
+	</span>					
+				
+			</div>
+
+			<div>
+				<label for="synopsis">Synopsis: </label>
+				<div>
+					<textarea cols=20 th:field="*{synopsis}" id="synopsis" />
+				</div>
+	<span style="color: red;" th:if="${#fields.hasErrors('synopsis')}">
+	<ul>
+		<li th:each="erreur: ${#fields.errors('synopsis')}" th:text="${erreur}"></li>
+	</ul>
+	</span>					
+				
+			</div>
+
+			<div class="champ-saisie">
+				<label for="genre">Genre: </label>
+				<div>
+					<select th:field="*{genre}" id="genre">
+						<th:block th:each="genre: ${@genreService.findAllGenres()}">
+							<option th:value="${genre.id}" th:text="${genre.libelle}"></option>
+						</th:block>
+					</select>
+	<span style="color: red;" th:if="${#fields.hasErrors('genre')}">
+	<ul>
+		<li th:each="erreur: ${#fields.errors('genre')}" th:text="${erreur}"></li>
+	</ul>
+	</span>					
+					
+				</div>
+			</div>
+
+			<div class="champ-saisie">
+				<label for="realisateur">Realisateur: </label>
+				<div>
+					<select th:field="*{realisateur}" id="realisateur">
+						<th:block
+							th:each="participant: ${@participantService.findAllParticipants()}">
+							<option th:value="${participant.id}"
+								th:text="${participant.prenom + ' ' + participant.nom}"></option>
+						</th:block>
+					</select>
+	<span style="color: red;" th:if="${#fields.hasErrors('realisateur')}">
+	<ul>
+		<li th:each="erreur: ${#fields.errors('realisateur')}" th:text="${erreur}"></li>
+	</ul>
+	</span>					
+					
+				</div>
+			</div>
+
+			<div class="champ-saisie">
+				<label for="acteurs">Acteurs: </label>
+				<div>
+					<select th:field="*{acteurs}" id="acteurs" multiple="multiple" size=10>
+						<th:block
+							th:each="participant: ${@participantService.findAllParticipants()}">
+							<option th:value="${participant.id}"
+								th:text="${participant.prenom + ' ' + participant.nom}"></option>
+						</th:block>
+					</select>
+	<span style="color: red;" th:if="${#fields.hasErrors('acteurs')}">
+	<ul>
+		<li th:each="erreur: ${#fields.errors('acteurs')}" th:text="${erreur}"></li>
+	</ul>
+	</span>					
+					
+				</div>
+			</div>
+
+			<button>Enregistrer</button>
+		</form>
+
+	</div>
+
+
+</body>
+</html>

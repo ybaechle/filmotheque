@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html th:fragment="layout (title, csspage, content)" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>[[${title}]]</title>
+<link rel="icon" th:href="@{/images/favicon.ico}" />
+<link rel="stylesheet" href="/css/main.css" />
+<th:block th:insert="${csspage}">
+</th:block>
+</head>
+<body>
+<header>
+		<div id="container-header">
+			<a href="/filmotheque">
+			<div class="logo-container">
+				<img src="/images/movie.svg" width="45px" alt="" aria-hidden="true" />
+				<h1>Filmotheque</h1>
+			</div>
+			</a>
+		</div>
+		<nav>
+			<th:block sec:authorize="hasAnyRole('MEMBRE', 'ADMIN')">		
+			<div><a href="/ajoutFilm">Nouveau film</a></div>
+			</th:block>
+			<th:block sec:authorize="hasRole('ADMIN')">
+			<div><a href="/genres">Administration genres</a></div>
+			</th:block>
+			<div sec:authorize="isAuthenticated()">
+	            <a href="/logout">Déconnexion</a>
+	        </div>
+	        <div sec:authorize="not isAuthenticated()">
+	            <a href="/login">Connexion</a>
+	        </div>
+			
+		</nav>
+	</header>
+	
+	<div id="contenu-principal" th:insert="${content}"></div>
+	
+	<footer th:fragment="pied-de-page">
+	<div id="footer-inside">
+	<div>&copy; 2024 ENI - Filmotheque</div>
+	<div><a href="#">Mentions légales</a></div>
+	<div><a href="#">Crédits</a></div>
+	</div>
+	</footer>
+</body>
+</html>

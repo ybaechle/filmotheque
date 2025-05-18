@@ -1,0 +1,29 @@
+
+-------------A FAIRE------------------------
+
+Filmotheque : itération 02
+
+1 - Faire la page d'ajout de film
+--> redirection vers la liste des films après ajout
+
+2 - Ajouter un lien nouveau film sur la page d'accueil (/liste films)
+
+
+3 - Validation des données
+--> titre, année de sortie, genre, realisateur sont obligatoires
+--> année de sortie doit être supérieure à 1800
+--> synopsis doit être soit vide soit superieur à 10 caractères.
+--> durée d'un film ne peut pas être négative
+
+
+4 - Gérer le réalisateur
+-- Formulaire d'ajout de film
+-- Afficher le réalisateur sur le détail du film
+
+==> Objectif fin à 10H30 -- Mise en commun à 11H00
+
+5 - Gérer les acteurs 
+-- Formulaire d'ajout de film
+-- Afficher les acteurs sur le détail du film
+
+==> Objectif fin à 12H00 -- Mise en commun à 12H00

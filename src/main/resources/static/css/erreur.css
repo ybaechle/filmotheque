@@ -1,0 +1,6 @@
+
+.erreur {
+	font-size: 2rem;
+	background-color:var(--couleur-erreur-grave-fond);
+	color: white;
+}

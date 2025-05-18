@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html th:replace="~{modele-page :: layout('genres',~{::link} , ~{::#container-main})}" xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<meta charset="UTF-8">
+		<title>Genres</title>
+		<link rel="stylesheet" href="/css/genres.css" />
+	</head>
+<body>
+
+	<div class="container-genres" id="container-main">
+	
+		<h2>Liste des genres </h2>
+		
+		<table border="1">
+		    <thead>
+		    <tr>
+		        
+		        <th>Libellé</th>
+		        <th>Action</th>
+		    </tr>
+		    </thead>
+		    <tbody>
+		    <tr th:each="genre : ${genres}">
+		        <td th:text="${genre.libelle}"></td>
+		        <td>
+		            <a th:href="@{/genres/edit(id=${genre.id})}">Modifier</a>
+		            <a th:href="@{/genres/delete(id=${genre.id})}" 
+		            	onclick="return confirm('Êtes-vous sûr de vouloir supprimer ce genre ?')">Supprimer</a>
+		        </td>
+		    </tr>
+		    </tbody>
+		</table>
+		
+		<br>
+		
+		<a href="/genres/edit">Ajouter un genre</a>
+	    
+	    <form th:action="@{/genres/edit}" method="post" th:object="${genre}">
+	        <input type="hidden" th:field="*{id}"/>
+	        <label for="libelle">Libellé:</label>
+	        <input type="text" id="libelle" name="libelle" th:field="*{libelle}" required/>
+	        <br/>
+	        <input type="submit" value="Enregistrer"/>
+	    </form>
+	    
+	    <a href="/">Retour à la liste des films</a>
+	</div>
+</body>
+</html>

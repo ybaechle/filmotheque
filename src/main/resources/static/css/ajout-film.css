@@ -1,0 +1,18 @@
+#container-main {
+	padding: 2rem;
+}
+.champ-saisie {
+	display: flex;
+	flex-direction: column;	
+	margin-bottom: 1rem;
+}
+
+.erreur-saisie {
+	border : 2px solid red;
+	color: red;
+	padding: 20px;
+	margin-bottom: 1rem;
+}
+
+
+

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html th:replace="~{modele-page :: layout('Detail de film',~{::link} , ~{::#container-main})}" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Filmotheque</title>
+<link rel="stylesheet" href="/css/film.css" />
+</head>
+<body>
+	<header th:replace="~{fragments :: entete}"></header>
+
+<div id="container-main">	
+<h1 th:text="${film.titre}">Titre du film</h1>
+
+<div class="champ champ-ligne">
+<h2>Année de sortie: </h2>
+<div th:text="${film.anneeSortie}">1800</div>
+</div>
+
+<div class="champ champ-ligne">
+<h2>Durée: </h2>
+<div th:text="${film.duree}">120</div>
+</div>
+
+
+<div class="champ champ-ligne">
+<h2>Synopsis: </h2>
+<div th:text="${film.synopsis}">Synopsis</div>
+</div>
+
+<div class="champ champ-ligne">
+<h2>Genre: </h2>
+<div th:text="${film.genre?.libelle}">GENRE</div>
+</div>
+
+<div class="champ champ-ligne">
+<h2>Réalisateur: </h2>
+<div th:text="${film.realisateur?.prenom + ' ' + film.realisateur?.nom}">Realisateur</div>
+</div>
+
+<div class="champ champ-ligne">
+<h2>Acteurs: </h2>
+<div id="liste-acteurs">
+	<th:block th:each="acteur: ${film.acteurs}">
+	<div>[[${acteur.prenom}]] [[${acteur.nom}]]</div>
+	</th:block>
+</div>
+</div>
+
+
+</div>
+
+
+<footer th:replace="~{fragments :: pied-de-page}"></footer>
+</body>
+</html>
